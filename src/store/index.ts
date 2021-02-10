@@ -47,11 +47,11 @@ export type Store = Omit<
     options?: CommitOptions
   ): void;
 } & {
-  dispatch<K extends keyof moduleCounter.ActionsPayload>(
+  dispatch<K extends keyof ActionsPayload>(
     key: K,
     payload: ActionsPayload[K][0],
     options?: DispatchOptions
-  ): moduleCounter.ActionsPayload[K][1];
+  ): ActionsPayload[K][1];
 } & {
   getters: {
     [K in keyof Getters]: ReturnType<Getters[K]>;
