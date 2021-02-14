@@ -17,19 +17,6 @@ export const mutations: MutationTree<State> & Mutations = {
 };
 
 /*
-   ---------------------- Mutations - no change code ------------------------
- */
-
-type Mutations = {
-  [Property in keyof MutationPayload]: (
-    state: State,
-    payload: MutationPayload[Property]
-  ) => void;
-};
-
-type State = typeof initialState;
-
-/*
    ---------------------- Getters -------------------------------
  */
 
@@ -81,3 +68,19 @@ type AugmentedActionContext = {
     options?: CommitOptions
   ): void;
 } & Omit<ActionContext<State, State>, "commit">;
+
+/*
+   ---------------------- Mutations - no change code ------------------------
+ */
+
+type Mutations = {
+  [Property in keyof MutationPayload]: (
+    state: State,
+    payload: MutationPayload[Property]
+  ) => void;
+};
+
+/*
+   ---------------------- Getters - no change code -------------------------------
+ */
+type State = typeof initialState;
